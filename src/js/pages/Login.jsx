@@ -32,9 +32,9 @@ export default class Example extends React.Component {
       <Bar
         data={
           {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            labels: ["Orgão 1", "Orgão 2", "Orgão 3", "Orgão 4", "Orgão 5", "Orgão 6", "Orgão 7"],
             datasets: [{
-            label: "My First dataset",
+            label: "Órgãos que mais consumiram",
             backgroundColor: 'rgb(255, 99, 132)',
             borderColor: 'rgb(255, 99, 132)',
             data: [0, 10, 5, 2, 20, 30, 45],
@@ -47,6 +47,7 @@ export default class Example extends React.Component {
           maintainAspectRatio: false
         }}
       />
+      
     );
   }
 }
