@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "NODE_ENV=development webpack-dev-server --mode development",
+    "serve": "cross-env NODE_ENV=development webpack-dev-server --mode development",
     "build:production": "webpack --mode production"
   },
   "keywords": [],
@@ -20,6 +20,7 @@
     "bootstrap": "^4.3.1",
     "chart.js": "^2.7.3",
     "clean-webpack-plugin": "^1.0.1",
+    "cross-env": "^5.2.0",
     "css-loader": "^2.1.0",
     "file-loader": "^3.0.1",
     "html-loader": "^0.5.5",
@@ -38,5 +39,8 @@
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.1.14"
+  },
+  "dependencies": {
+    "react-datepicker": "^2.4.0"
   }
 }
