@@ -2,11 +2,13 @@
   "name": "webpack-react-tutorial",
   "version": "1.0.0",
   "description": "",
+  "homepage": "https://taok-monitor.github.io/taok-front",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "cross-env NODE_ENV=development webpack-dev-server --mode development",
-    "build:production": "webpack --mode production"
+    "build:production": "webpack --mode production",
+    "deploy": "gh-pages -d build"
   },
   "keywords": [],
   "author": "",
@@ -41,6 +43,7 @@
     "webpack-dev-server": "^3.1.14"
   },
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "react-datepicker": "^2.4.0"
   }
 }
