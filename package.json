@@ -44,6 +44,7 @@
     "webpack-dev-server": "^3.1.14"
   },
   "dependencies": {
-    "react-datepicker": "^2.4.0"
+    "react-datepicker": "^2.4.0",
+    "tar": ">=4.4.2"
   }
 }
