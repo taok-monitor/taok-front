@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Login from './js/pages/Login.jsx'
+import Main from './js/pages/Main.jsx'
 
 ReactDOM.render(
-    <Login />,
+    <Main />,
     document.getElementById('create-article-form')
 )
