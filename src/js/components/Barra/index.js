@@ -14,21 +14,30 @@ export default class Barra extends Component {
           mesAnoFinal : props.mesAnoFinal
         };
 
-        console.log("Constructor barra");
-        console.log(props);        
+        this.obtemDados = this.obtemDados.bind(this);        
     }
 
-    componentWillUpdate(){
+    componentWillReceiveProps(props) {
+      console.log("receive propos ");
+      console.log(props);
+      
+      
+      this.setState({ 
+        mesAnoInicial: props.mesAnoInicial,
+        mesAnoFinal : props.mesAnoFinal 
+      })
 
-      console.log("Atualiza barra 2");     
+      this.obtemDados(props.mesAnoInicial, props.mesAnoFinal);
     }
 
     componentDidMount() {
 
-      console.log("Componente changed");
-      
+      this.obtemDados(this.state.mesAnoInicial, this.state.mesAnoFinal);        
+    }
 
-        axios.get(`http://localhost:8080/taok-backend/inicial/012019/${this.state.mesAnoFinal}`).then(res => {
+    obtemDados(mesAnoInicial, mesAnoFinal){
+
+      axios.get(`http://localhost:8080/taok-backend/inicial/${mesAnoInicial}/${mesAnoFinal}`).then(res => {
           
     
           this.setState({
