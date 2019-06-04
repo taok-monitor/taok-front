@@ -10,13 +10,14 @@ export default class Barra extends Component {
 
     constructor(props) {
         super(props);
-        
+
         this.state = {
           labels: [],
           valores: [],
           mesAnoInicial : props.mesAnoInicial,
           mesAnoFinal : props.mesAnoFinal,
-          totalAcumulado : 0
+          totalAcumulado : 0,
+          orgao: props.orgao
         };
 
         this.obtemDados = this.obtemDados.bind(this);        
@@ -26,20 +27,23 @@ export default class Barra extends Component {
       
       this.setState({ 
         mesAnoInicial: props.mesAnoInicial,
-        mesAnoFinal : props.mesAnoFinal 
+        mesAnoFinal : props.mesAnoFinal,
+        orgao : props.orgao
       })
 
-      this.obtemDados(props.mesAnoInicial, props.mesAnoFinal);
+      this.obtemDados(props.mesAnoInicial, props.mesAnoFinal, props.orgao);
     }
 
     componentDidMount() {
 
-      this.obtemDados(this.state.mesAnoInicial, this.state.mesAnoFinal);        
+      this.obtemDados(this.state.mesAnoInicial, this.state.mesAnoFinal, this.state.orgao);        
     }
 
-    obtemDados(mesAnoInicial, mesAnoFinal){
+    obtemDados(mesAnoInicial, mesAnoFinal, orgao){
 
-      axios.get(`http://localhost:8080/taok-backend/inicial/ano/${mesAnoInicial}/${mesAnoFinal}`).then(res => {
+
+    
+      axios.get(`http://localhost:8080/taok-backend/inicial/ano/${mesAnoInicial}/${mesAnoFinal}?orgao=${orgao}`).then(res => {
           
           this.calculaAcumulado(res.data[0].valores);
 

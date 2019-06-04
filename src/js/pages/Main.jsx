@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Card} from 'reactstrap';
+import { Container, Row, Col, Card, Input} from 'reactstrap';
 import DatePicker from "react-datepicker";
 
 import Barra from '../components/Barra';
@@ -25,6 +25,15 @@ export default class Main extends React.Component {
 
     this.informaDataIncial = this.informaDataIncial.bind(this);
     this.informaDataFinal = this.informaDataFinal.bind(this);
+    this.informaOrgao = this.informaOrgao.bind(this);
+  }
+
+  informaOrgao(orgao){
+    
+    this.setState({
+    
+      orgao : orgao.target.value
+    });
   }
 
   informaDataIncial(date) {
@@ -61,17 +70,26 @@ export default class Main extends React.Component {
       <Container>
         <hr/>
         <Row>
-          <Col>
-          <DatePicker
+          <Col xs="3">
+            <DatePicker
                 selected={this.state.dataIncial}
                 dateFormat="dd/MM/yyyy"
                 onChange={this.informaDataIncial}
             />
+          </Col>
+          <Col xs="3">
             <DatePicker
                 selected={this.state.dataFinal}
                 dateFormat="dd/MM/yyyy"
                 onChange={this.informaDataFinal}
             />
+          </Col>
+          <Col xs="3">            
+            <Input type="select" name="select" id="exampleSelect" onChange={this.informaOrgao} >
+              <option value="" >Escolha um órgão</option>
+              <option>FME</option>
+              <option>HMZAN</option>
+            </Input>
           </Col>
         </Row>
         <hr></hr>
