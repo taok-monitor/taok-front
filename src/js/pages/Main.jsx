@@ -3,7 +3,7 @@ import { Container, Row, Col, Card} from 'reactstrap';
 import DatePicker from "react-datepicker";
 
 import Barra from '../components/Barra';
-import Linha from '../components/Linha';
+import BarraTotal from '../components/BarraTotal';
 
 import "react-datepicker/dist/react-datepicker.css";
 import "../../css/App.css"
@@ -19,7 +19,8 @@ export default class Main extends React.Component {
       dataIncial: dataInicial,
       dataFinal : new Date(),
       mesAnoInicial : this.formaData(dataInicial),
-      mesAnoFinal : this.formaData(new Date())
+      mesAnoFinal : this.formaData(new Date()),
+      orgao: ''
     };
 
     this.informaDataIncial = this.informaDataIncial.bind(this);
@@ -77,12 +78,21 @@ export default class Main extends React.Component {
         <Row>
           <Col>
             <Card style={{ padding: '10px' }} >
-              <Barra mesAnoInicial={this.state.mesAnoInicial} mesAnoFinal={this.state.mesAnoFinal} ></Barra>
+            <BarraTotal 
+                mesAnoInicial={this.state.mesAnoInicial} 
+                mesAnoFinal={this.state.mesAnoFinal} 
+                orgao = {this.state.orgao}
+              ></BarraTotal>
+              
             </Card>            
           </Col>
           <Col>
-            <Card>
-              <Linha></Linha>
+          <Card style={{ padding: '10px' }} >
+              <Barra 
+                mesAnoInicial={this.state.mesAnoInicial} 
+                mesAnoFinal={this.state.mesAnoFinal} 
+                orgao = {this.state.orgao}
+              ></Barra>
             </Card>            
           </Col>
         </Row>        

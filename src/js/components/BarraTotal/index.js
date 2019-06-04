@@ -16,8 +16,7 @@ export default class Barra extends Component {
           valores: [],
           mesAnoInicial : props.mesAnoInicial,
           mesAnoFinal : props.mesAnoFinal,
-          totalAcumulado : 0,
-          orgao: props.orgao
+          totalAcumulado : 0
         };
 
         this.obtemDados = this.obtemDados.bind(this);        
@@ -40,7 +39,7 @@ export default class Barra extends Component {
 
     obtemDados(mesAnoInicial, mesAnoFinal){
 
-      axios.get(`http://localhost:8080/taok-backend/inicial/${mesAnoInicial}/${mesAnoFinal}`).then(res => {
+      axios.get(`http://localhost:8080/taok-backend/inicial/ano/${mesAnoInicial}/${mesAnoFinal}`).then(res => {
           
           this.calculaAcumulado(res.data[0].valores);
 
@@ -75,7 +74,7 @@ export default class Barra extends Component {
                   {
                     labels: this.state.labels,
                     datasets: [{
-                      label: "5 Orgãos que mais consumiram",
+                      label: "Consumo total por mês",
                       backgroundColor: 'rgb(255, 99, 132)',
                       borderColor: 'rgb(255, 99, 132)',
                       data: this.state.valores,
@@ -93,7 +92,7 @@ export default class Barra extends Component {
           <Row>
             <Col>
                 <Cartao
-                  orgao = 'Total dos 5 Maiores'
+                  orgao = 'Total'
                   valor = {this.state.totalAcumulado}
                 ></Cartao>
             </Col>            
