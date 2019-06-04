@@ -84,11 +84,33 @@ export default class Main extends React.Component {
                 onChange={this.informaDataFinal}
             />
           </Col>
-          <Col xs="3">            
+          <Col xs="6">            
             <Input type="select" name="select" id="exampleSelect" onChange={this.informaOrgao} >
               <option value="" >Escolha um órgão</option>
-              <option>FME</option>
-              <option>HMZAN</option>
+              <option value="FAS">FUNDO MUNICIPAL DE ASSISTENCIA SOCIAL - FAS</option>
+              <option value="FMC">FUNDO MUNICIPAL DE CULTURA - FMC</option>
+              <option value="FMDCA">FUNDO MUNICIPAL DE DEFESA DOS DIREITOS DA CRIANCA E DO ADOLESCENTE - FMDCA</option>
+              <option value="FMDSE">FUNDO MUNICIPAL DE DESENVOLVIMENTO ECONOMICO - FMDSE</option>
+              <option value="FUNDURB">FUNDO MUNICIPAL DE DESENVOLVIMENTO URBANO - FUNDURB</option>
+              <option value="FMDD">FUNDO MUNICIPAL DE DIREITOS DIFUSOS - FMDD</option>
+              <option value="FME">FUNDO MUNICIPAL DE EDUCACAO - FME</option>
+              <option value="FMHIS">FUNDO MUNICIPAL DE HABITACAO DE INTERESSE SOCIAL - FMHIS</option>    
+              <option value="FEMS">FUNDO MUNICIPAL DE SAUDE - FEMS</option>
+              <option value="FMDPI">FUNDO MUNICIPAL DOS DIREITOS DA PESSOA IDOSA - FMDPI</option>
+              <option value="FMDPD">FUNDO MUNICIPAL PARA PROMOCAO DOS DIREITOS DAS PESSOAS COM DEFICIENCIA - FMDPD</option>
+              <option value="GP">GABINETE DO PREFEITO - GP</option>
+              <option value="GVP">GABINETE DO VICE-PREFEITO - GVP</option>
+              <option value="GMF">GUARDA MUNICIPAL DE FORTALEZA - GMF</option>
+              <option value="HDMSJB">HOSPITAL DISTRITAL MARIA JOSE BARROSO DE OLIVEIRA - HDMSJB</option>
+              <option value="HEBO">HOSPITAL DISTRITAL EDMILSON BARROS DE OLIVEIRA - HEBO</option>
+              <option value="HDEAYRE">HOSPITAL DISTRITAL EVANDRO AYRES DE MOURA - HDEAYRE</option>
+              <option value="HDGM/BC">HOSPITAL DISTRITAL GONZAGA MOTA/BARRA DO CEARA - HDGM/BC</option>
+              <option value="HDGM/JW">HOSPITAL DISTRITAL GONZAGA MOTA/JOSE WALTER - HDGM/JW</option>
+              <option value="HDGM/ME">HOSPITAL DISTRITAL GONZAGA MOTA/MESSEJANA - HDGM/ME</option>
+              <option value="HDNSCON">HOSPITAL DISTRITAL NOSSA SENHORA DA CONCEICAO - HDNSCON</option>
+              <option value="HMZAN">HOSPITAL E MATERNIDADE DRA ZILDA ARNS NEUMANN - HMZAN</option>
+              <option value="CROA">HOSPITAL LUCIA DE FATIMA/CROA - CROA</option>
+              <option value="IJF">INSTITUTO DR. JOSE FROTA - IJF</option>
             </Input>
           </Col>
         </Row>
