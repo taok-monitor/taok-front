@@ -5,3 +5,20 @@ export function formataParaReal(valor){
       return numero.join(',');
    
   }
+
+export function preparaParametrosDeOrgaos(orgaos){
+  
+  var paramentos = "";
+  for(var item in orgaos){
+        
+    if( item == (orgaos.length-1) ){
+      
+      paramentos += `orgao=${orgaos[item]}`
+    }else{
+
+      paramentos += `orgao=${orgaos[item]}&`
+    }
+  }
+  
+  return paramentos;
+}  

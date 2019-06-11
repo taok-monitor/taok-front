@@ -1,12 +1,16 @@
-import React, { Component } from "react";
-import { Container, Row, Col, Card, Input} from 'reactstrap';
+import React from "react";
+import { Container, Row, Col, Card, Input, Button} from 'reactstrap';
 import DatePicker from "react-datepicker";
 
 import Barra from '../components/Barra';
 import BarraTotal from '../components/BarraTotal';
 
 import "react-datepicker/dist/react-datepicker.css";
-import "../../css/App.css"
+import "../../css/App.css";
+
+import Logo from '../../img/logo.jpg'
+import LogoFortaleza from '../../img/logo-prefeitura-fortaleza.png'
+import LogoCAGECE from '../../img/logo-cagece.png'
 
 export default class Main extends React.Component {
   constructor(props) {
@@ -20,19 +24,25 @@ export default class Main extends React.Component {
       dataFinal : new Date(),
       mesAnoInicial : this.formaData(dataInicial),
       mesAnoFinal : this.formaData(new Date()),
-      orgao: ''
+      orgao:'',
+      orgaos:[]
     };
 
     this.informaDataIncial = this.informaDataIncial.bind(this);
-    this.informaDataFinal = this.informaDataFinal.bind(this);
-    this.informaOrgao = this.informaOrgao.bind(this);
+    this.informaDataFinal  = this.informaDataFinal.bind(this);
+    this.informaOrgao      = this.informaOrgao.bind(this);
+    this.buscaHospitais    = this.buscaHospitais.bind(this);
+    this.inicio            = this.inicio.bind(this)
+    this.buscaPrefeitos    = this.buscaPrefeitos.bind(this);
+    this.buscaRegionais    = this.buscaRegionais.bind(this);
   }
 
   informaOrgao(orgao){
     
     this.setState({
     
-      orgao : orgao.target.value
+      orgao : orgao.target.value,
+      orgaos: [orgao.target.value]
     });
   }
 
@@ -64,10 +74,52 @@ export default class Main extends React.Component {
     return ""+mes+ano;
   }
 
+  inicio(){
+    this.setState({
+            
+      orgaos: []
+    });
+  }
+
+  buscaHospitais(){
+
+      this.setState({
+            
+        orgaos: ['HDMSJB','HEBO', 'HDEAYRE', 'HDGM/BC','HDGM/ME','HDNSCON','HMZAN','CROA']
+      });      
+  }
+
+  buscaPrefeitos(){
+
+    this.setState({
+          
+      orgaos: ['GP', 'GVP']
+    });      
+  }
+
+  buscaRegionais(){
+
+    this.setState({
+          
+      orgaos: ['SER I', 'SER II', 'SER III', 'SER IV', 'SER V', 'SER VI']
+    });      
+  }
 
   render() {
     return (
       <Container>
+        <hr />
+        <Row>
+          <Col>
+            <img src={Logo} alt="" width="100px" />
+          </Col>          
+          <Col>
+            <img src={LogoFortaleza} alt="" width="250px" /> 
+          </Col>
+          <Col>
+          <img src={LogoCAGECE} alt="" width="250px" />
+          </Col>
+        </Row>
         <hr/>
         <Row>
           <Col xs="3">
@@ -116,12 +168,35 @@ export default class Main extends React.Component {
         </Row>
         <hr></hr>
         <Row>
+          <Col xs="2">
+            <Button
+                onClick = {this.inicio}
+              > Início </Button>
+          </Col>
+          <Col xs="2" >          
+            <Button
+              onClick = {this.buscaHospitais}
+            > Hospitais </Button>
+          </Col>
+          <Col xs="2" >          
+            <Button
+              onClick = {this.buscaPrefeitos}
+            > Prefeitos </Button>
+          </Col>
+          <Col xs="2" >          
+            <Button
+              onClick = {this.buscaRegionais}
+            > Regionais </Button>
+          </Col>
+        </Row>
+        <hr></hr>
+        <Row>
           <Col>
             <Card style={{ padding: '10px' }} >
             <BarraTotal 
                 mesAnoInicial={this.state.mesAnoInicial} 
                 mesAnoFinal={this.state.mesAnoFinal} 
-                orgao = {this.state.orgao}
+                orgaos = { this.state.orgaos }
               ></BarraTotal>
               
             </Card>            
@@ -129,9 +204,9 @@ export default class Main extends React.Component {
           <Col>
           <Card style={{ padding: '10px' }} >
               <Barra 
-                mesAnoInicial={this.state.mesAnoInicial} 
-                mesAnoFinal={this.state.mesAnoFinal} 
-                orgao = {this.state.orgao}
+                mesAnoInicial = { this.state.mesAnoInicial } 
+                mesAnoFinal = { this.state.mesAnoFinal }
+                orgaos = { this.state.orgaos }
               ></Barra>
             </Card>            
           </Col>

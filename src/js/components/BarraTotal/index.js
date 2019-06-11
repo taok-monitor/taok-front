@@ -14,10 +14,10 @@ export default class Barra extends Component {
         this.state = {
           labels: [],
           valores: [],
+          orgaos: props.orgaos,
           mesAnoInicial : props.mesAnoInicial,
           mesAnoFinal : props.mesAnoFinal,
-          totalAcumulado : 0,
-          orgao: props.orgao
+          totalAcumulado : 0
         };
 
         this.obtemDados = this.obtemDados.bind(this);        
@@ -28,22 +28,21 @@ export default class Barra extends Component {
       this.setState({ 
         mesAnoInicial: props.mesAnoInicial,
         mesAnoFinal : props.mesAnoFinal,
-        orgao : props.orgao
+        orgaos : props.orgaos
       })
 
-      this.obtemDados(props.mesAnoInicial, props.mesAnoFinal, props.orgao);
+      this.obtemDados(props.mesAnoInicial, props.mesAnoFinal, props.orgaos);
     }
 
     componentDidMount() {
 
-      this.obtemDados(this.state.mesAnoInicial, this.state.mesAnoFinal, this.state.orgao);        
+      this.obtemDados(this.state.mesAnoInicial, this.state.mesAnoFinal, this.state.orgaos);        
     }
 
-    obtemDados(mesAnoInicial, mesAnoFinal, orgao){
-
-
-    
-      axios.get(`http://localhost:8080/taok-backend/inicial/ano/${mesAnoInicial}/${mesAnoFinal}?orgao=${orgao}`).then(res => {
+    obtemDados(mesAnoInicial, mesAnoFinal, orgaos){
+      
+      var parametrosDeOrgaosFormatados = Util.preparaParametrosDeOrgaos(orgaos); 
+      axios.get(`http://localhost:8080/taok-backend/inicial/ano/${mesAnoInicial}/${mesAnoFinal}?${parametrosDeOrgaosFormatados}`).then(res => {
           
           this.calculaAcumulado(res.data[0].valores);
 
@@ -79,8 +78,8 @@ export default class Barra extends Component {
                     labels: this.state.labels,
                     datasets: [{
                       label: "Consumo total por mês",
-                      backgroundColor: 'rgb(255, 99, 132)',
-                      borderColor: 'rgb(255, 99, 132)',
+                      backgroundColor: '#6c757d',
+                      borderColor: '#6c757d',
                       data: this.state.valores,
                     }]
                   }
