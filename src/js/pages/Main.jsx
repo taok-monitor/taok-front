@@ -168,22 +168,22 @@ export default class Main extends React.Component {
         </Row>
         <hr></hr>
         <Row>
-          <Col xs="2">
+          <Col xs="3">
             <Button
                 onClick = {this.inicio}
               > Início </Button>
           </Col>
-          <Col xs="2" >          
+          <Col xs="3" >          
             <Button
               onClick = {this.buscaHospitais}
             > Hospitais </Button>
           </Col>
-          <Col xs="2" >          
+          <Col xs="3" >          
             <Button
               onClick = {this.buscaPrefeitos}
             > Prefeitos </Button>
           </Col>
-          <Col xs="2" >          
+          <Col xs="3" >          
             <Button
               onClick = {this.buscaRegionais}
             > Regionais </Button>
