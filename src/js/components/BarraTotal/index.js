@@ -42,7 +42,7 @@ export default class Barra extends Component {
     obtemDados(mesAnoInicial, mesAnoFinal, orgaos){
       
       var parametrosDeOrgaosFormatados = Util.preparaParametrosDeOrgaos(orgaos); 
-      axios.get(`http://localhost:8080/taok-backend/inicial/ano/${mesAnoInicial}/${mesAnoFinal}?${parametrosDeOrgaosFormatados}`).then(res => {
+      axios.get(`https://api.inlinesoft.com.br/taok-api/inicial/ano/${mesAnoInicial}/${mesAnoFinal}?${parametrosDeOrgaosFormatados}`).then(res => {
           
           this.calculaAcumulado(res.data[0].valores);
 
@@ -99,8 +99,7 @@ export default class Barra extends Component {
                   valor = {this.state.totalAcumulado}
                 ></Cartao>
             </Col>            
-          </Row>
-            
+          </Row>                      
         </div>
                   
       );

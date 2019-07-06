@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Row, Col} from 'reactstrap';
+import { Row, Col, Table} from 'reactstrap';
 import { Bar } from 'react-chartjs-2';
 import axios from 'axios';
 
@@ -43,7 +43,7 @@ export default class Barra extends Component {
 
       var orgaosFormatados = Util.preparaParametrosDeOrgaos(orgaos);
 
-      axios.get(`http://localhost:8080/taok-backend/inicial/${mesAnoInicial}/${mesAnoFinal}?${orgaosFormatados}`).then(res => {
+      axios.get(`https://api.inlinesoft.com.br/taok-api/inicial/${mesAnoInicial}/${mesAnoFinal}?${orgaosFormatados}`).then(res => {
           
           this.calculaAcumulado(res.data[0].valores);
 
@@ -66,6 +66,52 @@ export default class Barra extends Component {
         totalAcumulado : Util.formataParaReal(total)
       });  
       
+    }
+
+    encontraLegenda(label){
+      const legendas = [
+        {
+          label:"FME",
+          legenda:"Fundo Municipal de Educação"
+        },
+        {
+          label:"HDEAYRE",
+          legenda:"Frotinha do Ant Bezerra"
+        },
+        {
+          label:"HDMSJB",
+          legenda:"Frotinha da Parangaba"
+        },
+        {
+          label:"HDNSCON",
+          legenda:"Hosp. Nossa Sra Cj Ceará"
+        },
+        {
+          label:"HEBO",
+          legenda:"Frotinha da Messajana"
+        },
+        {
+          label:"HDGM/ME",
+          legenda:"Gonzaginha da Messajana"
+        },
+        {
+          label:"GP",
+          legenda:"Gabinete do Prefeito"
+        },
+        {
+          label:"GVP",
+          legenda:"Gabinete do Vice Prefeito"
+        }
+      ] 
+
+      var teste = legendas.find( l => {
+        return l.label == label;
+      } )
+
+      if( teste != undefined ){
+
+        return teste.legenda;
+      }
     }
 
     render() {
@@ -100,6 +146,26 @@ export default class Barra extends Component {
                   valor = {this.state.totalAcumulado}
                 ></Cartao>
             </Col>            
+          </Row>
+          <Row>
+            <Col>
+              <Table>
+                <thead>
+                  <tr>
+                    <th>Siglas</th>
+                    <th>Legenda</th>
+                  </tr>
+                </thead>
+                <tbody> 
+                  {this.state.labels.map((i, index) => {
+                    return <tr key={index}>                    
+                            <td key={index + 1}>{i}</td>
+                            <td key={index + 2}>{this.encontraLegenda(i)}</td>
+                          </tr>
+                  })}               
+                </tbody>
+              </Table>
+            </Col>
           </Row>
             
         </div>

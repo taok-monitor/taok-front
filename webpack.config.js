@@ -2,6 +2,7 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const devMode = process.env.NODE_ENV === 'development';
 
 module.exports = {
+
   module: {
     rules: [
       {
@@ -11,13 +12,9 @@ module.exports = {
           loader: "babel-loader"
         }
       },
-      {
-        test: /\.(sa|sc|c)ss$/,
-        use: [
-          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-          'css-loader',
-          'sass-loader'
-        ]
+      {        
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
       },
       {
         test: /\.html$/,
