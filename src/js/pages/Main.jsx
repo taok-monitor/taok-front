@@ -110,33 +110,34 @@ export default class Main extends React.Component {
       <Container>
         <hr />
         <Row>
-          <Col>
+          <Col style={{ textAlign:"center" }} >
             <img src={Logo} alt="" width="100px" />
           </Col>          
-          <Col>
-            <img src={LogoFortaleza} alt="" width="250px" /> 
+          <Col style={{ textAlign:"center"}}  >            
+            Quanto os órgãos da prefeitura de Fortaleza pagam para a Cagece?
           </Col>
-          <Col>
-          <img src={LogoCAGECE} alt="" width="250px" />
-          </Col>
+        </Row>
+        <Row>
+          <hr/>
+          
         </Row>
         <hr/>
         <Row>
-          <Col xs="3">
+          <Col xs="6" md="3" style={{padding:"10px"}} >
             <DatePicker
                 selected={this.state.dataIncial}
                 dateFormat="dd/MM/yyyy"
                 onChange={this.informaDataIncial}
-            />
+            />                          
           </Col>
-          <Col xs="3">
+          <Col xs="6" md="3" style={{padding:"10px"}} >
             <DatePicker
                 selected={this.state.dataFinal}
                 dateFormat="dd/MM/yyyy"
                 onChange={this.informaDataFinal}
             />
           </Col>
-          <Col xs="6">            
+          <Col xs="12" md="6" style={{padding:"10px"}} >
             <Input type="select" name="select" id="exampleSelect" onChange={this.informaOrgao} >
               <option value="" >Escolha um órgão</option>
               <option value="FAS">FUNDO MUNICIPAL DE ASSISTENCIA SOCIAL - FAS</option>
@@ -168,31 +169,39 @@ export default class Main extends React.Component {
         </Row>
         <hr></hr>
         <Row>
-          <Col xs="3">
+          <Col xs="12" md="3"style={{padding:"10px"}}>
             <Button
                 onClick = {this.inicio}
+                size="lg"
+                block
               > Início </Button>
           </Col>
-          <Col xs="3" >          
+          <Col xs="12" md="3"style={{padding:"10px"}}>
             <Button
               onClick = {this.buscaHospitais}
+              size="lg"
+              block
             > Hospitais </Button>
           </Col>
-          <Col xs="3" >          
+          <Col xs="12" md="3"style={{padding:"10px"}}>          
             <Button
               onClick = {this.buscaPrefeitos}
+              size="lg"
+              block
             > Prefeitos </Button>
           </Col>
-          <Col xs="3" >          
+          <Col xs="12" md="3" style={{padding:"10px"}} >          
             <Button
               onClick = {this.buscaRegionais}
+              size="lg"
+              block
             > Regionais </Button>
           </Col>
         </Row>
         <hr></hr>
         <Row>
           <Col>
-            <Card style={{ padding: '10px' }} >
+            <Card>
             <BarraTotal 
                 mesAnoInicial={this.state.mesAnoInicial} 
                 mesAnoFinal={this.state.mesAnoFinal} 
@@ -202,7 +211,7 @@ export default class Main extends React.Component {
             </Card>            
           </Col>
           <Col>
-          <Card style={{ padding: '10px' }} >
+          <Card>
               <Barra 
                 mesAnoInicial = { this.state.mesAnoInicial } 
                 mesAnoFinal = { this.state.mesAnoFinal }
