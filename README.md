@@ -15,4 +15,3 @@ Projeto dividido em [taok-front](https://github.com/taok-monitor/) e [taok-api](
 
 ## Tecnologias
 - ReactJs
-- 
