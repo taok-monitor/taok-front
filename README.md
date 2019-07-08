@@ -5,11 +5,14 @@ Projeto simples que consome dados do Portal da transparência da Prefeitura de F
 Existe muito incentivo para que a população economize água,
 Mas será que os órgãos públicos também economizam? 
 
-Vamos tentar responder essas pergunta com o *TaOk Monitor*
+Vamos tentar responder essas pergunta com o **TaOk Monitor**
 
-## Este projeto
+## Qual a origem dos dados?
+Dados obtidos no portal da transparência da prefeitura de Fortaleza na categoria de [Despesas](https://transparencia.fortaleza.ce.gov.br/index.php/despesa/index), todos os dados são de **PAGAMENTOS** 
 
-*Taok-front* responsável por consumir a api do [taok-api]() com dados normalizados.
+## Técnico
+Projeto dividido em [taok-front](https://github.com/taok-monitor/) e [taok-api](https://github.com/taok-monitor/taok-backend).
 
 ## Tecnologias
 - ReactJs
+- 
