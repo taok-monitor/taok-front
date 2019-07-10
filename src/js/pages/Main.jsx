@@ -8,10 +8,6 @@ import BarraTotal from '../components/BarraTotal';
 import "react-datepicker/dist/react-datepicker.css";
 import "../../css/App.css";
 
-import Logo from '../../img/logo.jpg'
-import LogoFortaleza from '../../img/logo-prefeitura-fortaleza.png'
-import LogoCAGECE from '../../img/logo-cagece.png'
-
 export default class Main extends React.Component {
   constructor(props) {
     super(props);
@@ -35,6 +31,7 @@ export default class Main extends React.Component {
     this.inicio            = this.inicio.bind(this)
     this.buscaPrefeitos    = this.buscaPrefeitos.bind(this);
     this.buscaRegionais    = this.buscaRegionais.bind(this);
+    this.buscaAno          = this.buscaAno.bind(this);
   }
 
   informaOrgao(orgao){
@@ -104,22 +101,29 @@ export default class Main extends React.Component {
       orgaos: ['SER I', 'SER II', 'SER III', 'SER IV', 'SER V', 'SER VI']
     });      
   }
+  
+  buscaAno(ano){
+
+    console.log(ano);
+    
+    
+    const mesAnoInicial = `01${ano}`;
+    const mesAnoFinal = `12${ano}`
+
+    this.setState({
+      mesAnoInicial : mesAnoInicial,
+      mesAnoFinal : mesAnoFinal
+    });
+  }
 
   render() {
     return (
       <Container>
         <hr />
         <Row>
-          <Col style={{ textAlign:"center" }} >
-            <img src={Logo} alt="" width="100px" />
-          </Col>          
-          <Col style={{ textAlign:"center"}}  >            
-            Quanto os órgãos da prefeitura de Fortaleza pagam para a Cagece?
+          <Col>
+            Quanto um órgão da Prefeitura de Fortaleza paga todo mês para a CAGECE?
           </Col>
-        </Row>
-        <Row>
-          <hr/>
-          
         </Row>
         <hr/>
         <Row>
@@ -169,35 +173,60 @@ export default class Main extends React.Component {
         </Row>
         <hr></hr>
         <Row>
-          <Col xs="12" md="3"style={{padding:"10px"}}>
-            <Button
-                onClick = {this.inicio}
-                size="lg"
-                block
-              > Início </Button>
-          </Col>
-          <Col xs="12" md="3"style={{padding:"10px"}}>
-            <Button
-              onClick = {this.buscaHospitais}
-              size="lg"
-              block
-            > Hospitais </Button>
-          </Col>
-          <Col xs="12" md="3"style={{padding:"10px"}}>          
-            <Button
-              onClick = {this.buscaPrefeitos}
-              size="lg"
-              block
-            > Prefeitos </Button>
-          </Col>
-          <Col xs="12" md="3" style={{padding:"10px"}} >          
-            <Button
-              onClick = {this.buscaRegionais}
-              size="lg"
-              block
-            > Regionais </Button>
-          </Col>
-        </Row>
+          <Col xs="6" md="6"style={{padding:"10px"}}>
+            <Row>
+              <Col xs="12" md="6"style={{padding:"10px"}}>
+                <Button
+                    onClick = {this.inicio}
+                    size="lg"
+                    block
+                  > Todos </Button>
+              </Col>
+              <Col xs="12" md="6"style={{padding:"10px"}}>
+                <Button
+                  onClick = {this.buscaHospitais}
+                  size="lg"
+                  block
+                > Hospitais </Button>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs="12" md="6"style={{padding:"10px"}}>          
+                <Button
+                  onClick = {this.buscaPrefeitos}
+                  size="lg"
+                  block
+                > Prefeitos </Button>
+              </Col>
+              <Col xs="12" md="6" style={{padding:"10px"}} >          
+                <Button
+                  onClick = {this.buscaRegionais}
+                  size="lg"
+                  block
+                > Regionais </Button>
+              </Col>
+            </Row>            
+          </Col>   
+          <Col xs="6" md="6"style={{padding:"10px"}}>
+            <Row>
+              <Col xs="12" md="6"style={{padding:"10px"}}>
+                <Button
+                    id="teste"
+                    onClick = { () => this.buscaAno('2019')}
+                    size="lg"
+                    block
+                  > 2019 </Button>
+              </Col>
+              <Col xs="12" md="6"style={{padding:"10px"}}>
+                <Button
+                    onClick = {() => this.buscaAno('2018')}
+                    size="lg"
+                    block
+                  > 2018 </Button>
+              </Col>
+            </Row>
+          </Col>   
+        </Row>        
         <hr></hr>
         <Row>
           <Col>

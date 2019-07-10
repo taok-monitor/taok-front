@@ -152,7 +152,7 @@ export default class Barra extends Component {
               <Table>
                 <thead>
                   <tr>
-                    <th>Siglas</th>
+                    <th>Sigla</th>
                     <th>Legenda</th>
                   </tr>
                 </thead>
