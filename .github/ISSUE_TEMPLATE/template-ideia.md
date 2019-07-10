@@ -1,14 +1,13 @@
 ---
 name: Template Ideia
-about: Descrição de uma idédia
-title: "[ideia]"
+about: Descrição de uma idéia
+title: ''
 labels: Ideia
 assignees: ''
 
 ---
 
-## Título da Funcionalidade
-Descrição da funcionalidade
+Descrição da ideia de forma simples 
 
 ## Objetivo
-Objetivo da Funcionalidade
+Qual o objetivo da ideia o que ela entrega de valor
