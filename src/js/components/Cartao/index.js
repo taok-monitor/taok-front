@@ -1,17 +1,23 @@
 import React from 'react';
-import { Card, CardText, CardBody,CardTitle } from 'reactstrap';
+import PropTypes from 'prop-types';
+import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
 
-const Cartao = (props) => {
-  return (
-    <div>
-      <Card>
-        <CardBody>
-          <CardTitle>{props.orgao}</CardTitle>
-          <CardText>{ props.valor }</CardText>
-        </CardBody>
-      </Card>
-    </div>
-  );
+const Cartao = ({ orgao, valor }) => {
+    return (
+        <div>
+            <Card>
+                <CardBody>
+                    <CardTitle>{orgao}</CardTitle>
+                    <CardText>{valor}</CardText>
+                </CardBody>
+            </Card>
+        </div>
+    );
+};
+
+Cartao.propTypes = {
+    orgao: PropTypes.string.isRequired,
+    valor: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
 };
 
 export default Cartao;
