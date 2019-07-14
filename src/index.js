@@ -1,9 +1,6 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Main from './js/pages/Main.jsx'
+import Main from './js/pages/Main';
 
-ReactDOM.render(
-    <Main />,
-    document.getElementById('create-article-form')
-)
+ReactDOM.render(<Main />, document.getElementById('root'));

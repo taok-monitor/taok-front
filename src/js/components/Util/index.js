@@ -1,24 +1,21 @@
-export function formataParaReal(valor){
+export function formataParaReal(valor) {
+    const numero = Number(valor)
+        .toFixed(2)
+        .split('.');
 
-    var numero = Number(valor).toFixed(2).split('.');
-      numero[0] = "R$ " + numero[0].split(/(?=(?:...)*$)/).join('.');
-      return numero.join(',');
-   
-  }
+    numero[0] = `R$ ${numero[0].split(/(?=(?:...)*$)/).join('.')}`;
 
-export function preparaParametrosDeOrgaos(orgaos){
-  
-  var paramentos = "";
-  for(var item in orgaos){
-        
-    if( item == (orgaos.length-1) ){
-      
-      paramentos += `orgao=${orgaos[item]}`
-    }else{
+    return numero.join(',');
+}
 
-      paramentos += `orgao=${orgaos[item]}&`
-    }
-  }
-  
-  return paramentos;
-}  
+export function preparaParametrosDeOrgaos(orgaos = []) {
+    const paramentos = orgaos
+        .map((orgao, index, array) => {
+            const isLast = index === array.length - 1;
+
+            return `orgao=${orgao}${isLast ? '' : '&'}`;
+        })
+        .join('');
+
+    return paramentos;
+}
