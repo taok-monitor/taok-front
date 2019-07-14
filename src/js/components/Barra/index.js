@@ -4,49 +4,9 @@ import { Row, Col, Table } from 'reactstrap';
 import { Bar } from 'react-chartjs-2';
 import axios from 'axios';
 
+import * as Legenda from '../Legenda'
 import * as Util from '../Util';
 import Cartao from '../Cartao';
-
-const legendas = [
-    {
-        label: 'FME',
-        legenda: 'Fundo Municipal de Educação',
-    },
-    {
-        label: 'HDEAYRE',
-        legenda: 'Frotinha do Ant Bezerra',
-    },
-    {
-        label: 'HDMSJB',
-        legenda: 'Frotinha da Parangaba',
-    },
-    {
-        label: 'HDNSCON',
-        legenda: 'Hosp. Nossa Sra Cj Ceará',
-    },
-    {
-        label: 'HEBO',
-        legenda: 'Frotinha da Messajana',
-    },
-    {
-        label: 'HDGM/ME',
-        legenda: 'Gonzaginha da Messajana',
-    },
-    {
-        label: 'GP',
-        legenda: 'Gabinete do Prefeito',
-    },
-    {
-        label: 'GVP',
-        legenda: 'Gabinete do Vice Prefeito',
-    },
-];
-
-function encontraLegenda(label) {
-    const legendaEncontrada = legendas.find(legenda => legenda.label === label);
-
-    return legendaEncontrada && legendaEncontrada.legenda;
-}
 
 export default class Barra extends Component {
     constructor(props) {
@@ -157,7 +117,7 @@ export default class Barra extends Component {
                                     return (
                                         <tr key={index}>
                                             <td>{label}</td>
-                                            <td>{encontraLegenda(label)}</td>
+                                            <td>{Legenda.encontraLegenda(label)}</td>
                                         </tr>
                                     );
                                 })}
