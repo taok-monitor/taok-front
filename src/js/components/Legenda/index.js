@@ -1,3 +1,7 @@
+import React, { Component } from 'react';
+import { Table } from 'reactstrap';
+import PropTypes from 'prop-types';
+
 const legendas = [
     {
         label: 'FME',
@@ -33,9 +37,53 @@ const legendas = [
     },
 ];
 
-export function encontraLegenda(label) {
-
+function encontraLegenda(label) {
     const legendaEncontrada = legendas.find(legenda => legenda.label === label);
 
     return legendaEncontrada && legendaEncontrada.legenda;
 }
+
+export default class Legenda extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            labels: props.labels,
+        };
+    }
+
+    componentWillReceiveProps(props) {
+        this.setState({
+            labels: props.labels,
+        });
+    }
+
+    render() {
+        const { labels } = this.state;
+
+        return (
+            <Table>
+                <thead>
+                    <tr>
+                        <th>Sigla</th>
+                        <th>Legenda</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {labels.map((label, index) => {
+                        return (
+                            <tr key={index}>
+                                <td>{label}</td>
+                                <td>{encontraLegenda(label)}</td>
+                            </tr>
+                        );
+                    })}
+                </tbody>
+            </Table>
+        );
+    }
+}
+
+Legenda.propTypes = {
+    labels: PropTypes.arrayOf(PropTypes.any).isRequired,
+};

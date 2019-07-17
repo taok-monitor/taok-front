@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Row, Col, Table } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 import { Bar } from 'react-chartjs-2';
 import axios from 'axios';
 
-import * as Legenda from '../Legenda'
+import Legenda from '../Legenda';
 import * as Util from '../Util';
 import Cartao from '../Cartao';
 
@@ -105,24 +105,7 @@ export default class Barra extends Component {
                 </Row>
                 <Row>
                     <Col>
-                        <Table>
-                            <thead>
-                                <tr>
-                                    <th>Sigla</th>
-                                    <th>Legenda</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {labels.map((label, index) => {
-                                    return (
-                                        <tr key={index}>
-                                            <td>{label}</td>
-                                            <td>{Legenda.encontraLegenda(label)}</td>
-                                        </tr>
-                                    );
-                                })}
-                            </tbody>
-                        </Table>
+                        <Legenda labels={labels} />
                     </Col>
                 </Row>
             </div>
