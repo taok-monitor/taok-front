@@ -29,7 +29,8 @@
 				"tabWidth": 4
 			},
 			{ "usePrettierrc": false }
-		]
+		],
+		"import/prefer-default-export": ["off"]
 	},
 	"plugins": ["prettier"]
 }
