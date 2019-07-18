@@ -8,6 +8,8 @@ import BarraTotal from '../components/BarraTotal';
 import 'react-datepicker/dist/react-datepicker.css';
 import '../../css/App.css';
 
+import { API } from '../API';
+
 const ORGAOS = [
     {
         label: 'FAS',
@@ -339,6 +341,7 @@ export default class Main extends React.Component {
                                 mesAnoInicial={mesAnoInicial}
                                 mesAnoFinal={mesAnoFinal}
                                 orgaos={orgaos}
+                                api={API.BY_YEAR}
                             />
                         </Card>
                     </Col>
@@ -348,6 +351,7 @@ export default class Main extends React.Component {
                                 mesAnoInicial={mesAnoInicial}
                                 mesAnoFinal={mesAnoFinal}
                                 orgaos={orgaos}
+                                api={API.BY_MULTI_PARAMS}
                             />
                         </Card>
                     </Col>
