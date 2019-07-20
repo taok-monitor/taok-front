@@ -1,0 +1,10 @@
+.date-picker,
+.react-datepicker-wrapper,
+.react-datepicker__input-container {
+	max-width: 100%;
+	width: 100%;
+}
+
+.column {
+	padding: 10px;
+}

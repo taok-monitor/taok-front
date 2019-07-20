@@ -10,6 +10,8 @@ import '../../css/App.css';
 
 import { API } from '../API';
 
+import './Main.css';
+
 const ORGAOS = [
     {
         label: 'FAS',
@@ -244,21 +246,23 @@ export default class Main extends React.Component {
                 </Row>
                 <hr />
                 <Row>
-                    <Col xs="6" md="3" style={{ padding: '10px' }}>
+                    <Col xs="12" md="3" className="column">
                         <DatePicker
+                            className="date-picker form-control"
                             selected={dataIncial}
                             dateFormat="dd/MM/yyyy"
                             onChange={this.informaDataIncial}
                         />
                     </Col>
-                    <Col xs="6" md="3" style={{ padding: '10px' }}>
+                    <Col xs="12" md="3" className="column">
                         <DatePicker
+                            className="date-picker form-control"
                             selected={dataFinal}
                             dateFormat="dd/MM/yyyy"
                             onChange={this.informaDataFinal}
                         />
                     </Col>
-                    <Col xs="12" md="6" style={{ padding: '10px' }}>
+                    <Col xs="12" md="6" className="column">
                         <Input
                             type="select"
                             name="select"
@@ -271,14 +275,14 @@ export default class Main extends React.Component {
                 </Row>
                 <hr />
                 <Row>
-                    <Col xs="6" md="6" style={{ padding: '10px' }}>
+                    <Col xs="6" md="6" className="column">
                         <Row>
-                            <Col xs="12" md="6" style={{ padding: '10px' }}>
+                            <Col xs="12" md="6" className="column">
                                 <Button onClick={this.inicio} size="lg" block>
                                     Todos
                                 </Button>
                             </Col>
-                            <Col xs="12" md="6" style={{ padding: '10px' }}>
+                            <Col xs="12" md="6" className="column">
                                 <Button
                                     onClick={this.buscaHospitais}
                                     size="lg"
@@ -289,7 +293,7 @@ export default class Main extends React.Component {
                             </Col>
                         </Row>
                         <Row>
-                            <Col xs="12" md="6" style={{ padding: '10px' }}>
+                            <Col xs="12" md="6" className="column">
                                 <Button
                                     onClick={this.buscaPrefeitos}
                                     size="lg"
@@ -298,7 +302,7 @@ export default class Main extends React.Component {
                                     Prefeitos
                                 </Button>
                             </Col>
-                            <Col xs="12" md="6" style={{ padding: '10px' }}>
+                            <Col xs="12" md="6" className="column">
                                 <Button
                                     onClick={this.buscaRegionais}
                                     size="lg"
@@ -309,9 +313,9 @@ export default class Main extends React.Component {
                             </Col>
                         </Row>
                     </Col>
-                    <Col xs="6" md="6" style={{ padding: '10px' }}>
+                    <Col xs="6" md="6" className="column">
                         <Row>
-                            <Col xs="12" md="6" style={{ padding: '10px' }}>
+                            <Col xs="12" md="6" className="column">
                                 <Button
                                     id="teste"
                                     onClick={() => this.buscaAno('2019')}
@@ -321,7 +325,7 @@ export default class Main extends React.Component {
                                     2019
                                 </Button>
                             </Col>
-                            <Col xs="12" md="6" style={{ padding: '10px' }}>
+                            <Col xs="12" md="6" className="column">
                                 <Button
                                     onClick={() => this.buscaAno('2018')}
                                     size="lg"
