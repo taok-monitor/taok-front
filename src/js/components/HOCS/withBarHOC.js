@@ -118,9 +118,7 @@ function calculaAcumulado(valores = []) {
 function encontraLegenda(label) {
     const legendaEncontrada = legendas.find(legenda => legenda.label === label);
 
-    return legendaEncontrada && legendaEncontrada.legenda
-        ? legendaEncontrada.legenda
-        : '';
+    return legendaEncontrada ? legendaEncontrada.legenda : '';
 }
 
 function getFormattedLabel(tooltipItem, data) {
