@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Cartao /> should render correctly with props 1`] = `
+<div
+  class="card"
+>
+  <div
+    class="card-body"
+  >
+    <div
+      class="card-title"
+    >
+      Hospital Geral
+    </div>
+    <p
+      class="card-text"
+    >
+      50000
+    </p>
+  </div>
+</div>
+`;
