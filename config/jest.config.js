@@ -1,11 +1,12 @@
 module.exports = {
+    rootDir: '../',
     clearMocks: true,
     collectCoverageFrom: ['src/**/*.{js,jsx,mjs}'],
     coverageDirectory: 'coverage',
     moduleFileExtensions: ['js', 'json', 'jsx'],
     setupFiles: [],
     setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
-    roots: ['<rootDir>', './../src'],
+    roots: ['<rootDir>'],
     testEnvironment: 'jsdom',
     testMatch: ['**/__tests__/**/*.js?(x)', '**/?(*.)+(spec|test).js?(x)'],
     testPathIgnorePatterns: ['\\\\node_modules\\\\'],
