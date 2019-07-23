@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`withBarHOC should call \`getFormattedLabel\` onMouseEnter 1`] = `
+<div>
+  <p>
+    Total acumulado: 
+    R$ 46.445,82
+  </p>
+  <p>
+    Mes e ano inicial: 
+    062019
+  </p>
+  <p>
+    Mes e ano final: 
+    072019
+  </p>
+  <button
+    type="button"
+  >
+    onMouseEnter to call getFormattedLabel
+  </button>
+  <p>
+    INSTITUTO DR. JOSE FROTA: R$ 1.000,00
+  </p>
+</div>
+`;
+
+exports[`withBarHOC should get data again when props change 1`] = `
+<div>
+  <p>
+    Total acumulado: 
+    R$ 46.445,82
+  </p>
+  <p>
+    Mes e ano inicial: 
+    062019
+  </p>
+  <p>
+    Mes e ano final: 
+    072019
+  </p>
+  <button
+    type="button"
+  >
+    onMouseEnter to call getFormattedLabel
+  </button>
+</div>
+`;
+
+exports[`withBarHOC should get data again when props change 2`] = `
+<div>
+  <p>
+    Total acumulado: 
+    R$ 46.445,82
+  </p>
+  <p>
+    Mes e ano inicial: 
+    072019
+  </p>
+  <p>
+    Mes e ano final: 
+    082019
+  </p>
+  <button
+    type="button"
+  >
+    onMouseEnter to call getFormattedLabel
+  </button>
+</div>
+`;
+
+exports[`withBarHOC should render correctly and pass props down 1`] = `
+<div>
+  <p>
+    Total acumulado: 
+    R$ 46.445,82
+  </p>
+  <p>
+    Mes e ano inicial: 
+    062019
+  </p>
+  <p>
+    Mes e ano final: 
+    072019
+  </p>
+  <button
+    type="button"
+  >
+    onMouseEnter to call getFormattedLabel
+  </button>
+</div>
+`;
