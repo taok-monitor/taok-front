@@ -121,7 +121,7 @@ function encontraLegenda(label) {
     return legendaEncontrada ? legendaEncontrada.legenda : '';
 }
 
-function getFormattedLabel(tooltipItem, data) {
+export function getFormattedLabel(tooltipItem, data) {
     const { data: dataValues } = data.datasets[tooltipItem.datasetIndex];
     const label = encontraLegenda(data.labels[tooltipItem.index]);
     const value = dataValues[tooltipItem.index];
@@ -145,29 +145,28 @@ export function withBarHOC(Component) {
         }
 
         componentDidMount() {
+            this.obtemDados();
+        }
+
+        componentWillReceiveProps(nextProps) {
+            const { mesAnoInicial, mesAnoFinal, orgaos } = nextProps;
+
+            this.setState(
+                {
+                    mesAnoInicial,
+                    mesAnoFinal,
+                    orgaos,
+                },
+                this.obtemDados
+            );
+        }
+
+        obtemDados() {
+            const { api } = this.props;
             const { mesAnoInicial, mesAnoFinal, orgaos } = this.state;
-
-            this.obtemDados(mesAnoInicial, mesAnoFinal, orgaos);
-        }
-
-        componentWillReceiveProps(props) {
-            const { mesAnoInicial, mesAnoFinal, orgaos } = props;
-
-            this.setState({
-                mesAnoInicial,
-                mesAnoFinal,
-                orgaos,
-            });
-
-            this.obtemDados(mesAnoInicial, mesAnoFinal, orgaos);
-        }
-
-        obtemDados(mesAnoInicial, mesAnoFinal, orgaos) {
             const parametrosDeOrgaosFormatados = Util.preparaParametrosDeOrgaos(
                 orgaos
             );
-
-            const { api } = this.props;
 
             axios
                 .get(
