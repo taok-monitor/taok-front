@@ -69,6 +69,6 @@
 		"react-datepicker": "^2.4.0",
 		"react-dom": "^16.8.1",
 		"reactstrap": "^7.1.0",
-		"tar": ">=4.4.2"
+		"tar": ">=4.4.15"
 	}
 }
