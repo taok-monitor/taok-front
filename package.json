@@ -63,7 +63,7 @@
 		"@babel/runtime": "^7.5.5",
 		"axios": "^0.21.2",
 		"bootstrap": "^4.3.1",
-		"chart.js": "^2.7.3",
+		"chart.js": "^2.9.4",
 		"react": "^16.8.1",
 		"react-chartjs-2": "^2.7.4",
 		"react-datepicker": "^2.4.0",
